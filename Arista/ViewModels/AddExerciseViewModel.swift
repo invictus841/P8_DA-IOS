@@ -5,26 +5,34 @@
 //  Created by Vincent Saluzzo on 08/12/2023.
 //
 
-import Foundation
-import CoreData
+import Foundation // No import CoreData!
 
 class AddExerciseViewModel: ObservableObject {
     @Published var category: String = ""
     @Published var startTime: Date = Date()
     @Published var duration: Int = 0
     @Published var intensity: Int = 0
-    
+
     @Published var error: AppError? = nil
 
-    private var viewContext: NSManagedObjectContext
+    private let modelService: ModelServiceProtocol // Inject ModelServiceProtocol, NO Core Data
 
-    init(context: NSManagedObjectContext) {
-        self.viewContext = context
+    //Removed context as it is not required here
+
+    init(modelService: ModelServiceProtocol) {
+        self.modelService = modelService
     }
 
     func addExercise() -> Bool {
+        let exerciseData = ExerciseData(
+            category: category,
+            startTime: startTime,
+            duration: duration,
+            intensity: intensity
+        )
+
         do {
-            try ExerciseRepository(viewContext: viewContext).addExercise(category: category, duration: duration, intensity: intensity, startDate: startTime)
+            try modelService.addExercise(data: exerciseData)
             return true
         } catch {
             if let appError = error as? AppError {

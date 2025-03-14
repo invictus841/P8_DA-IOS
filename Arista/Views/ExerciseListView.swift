@@ -11,6 +11,7 @@ import CoreData
 struct ExerciseListView: View {
     @ObservedObject var viewModel: ExerciseListViewModel
     @State private var showingAddExerciseView = false
+    @Environment(\.managedObjectContext) private var managedObjectContext
 
     var body: some View {
         NavigationView {
@@ -45,7 +46,7 @@ struct ExerciseListView: View {
                 viewModel.reload()
             }
             .sheet(isPresented: $showingAddExerciseView) {
-                AddExerciseView(viewModel: AddExerciseViewModel(context: viewModel.viewContext))
+                AddExerciseView(viewModel: AddExerciseViewModel(modelService: ModelService(context: managedObjectContext)))
             }
         }
     }
@@ -76,6 +77,7 @@ struct ExerciseListView: View {
         viewModel.deleteExercise(exercise: exerciseToDelete)
     }
 }
+
 // MARK: - ExerciseRow View
 struct ExerciseRow: View {
     let exercise: Exercise

@@ -34,6 +34,7 @@
 		AC5F7EAE2D7AFC5F00E5D898 /* DefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EA82D7AFC5F00E5D898 /* DefaultData.swift */; };
 		AC5F7EAF2D7AFC5F00E5D898 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EAB2D7AFC5F00E5D898 /* UserRepository.swift */; };
 		AC5F7EB02D7AFC5F00E5D898 /* ExerciseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EA92D7AFC5F00E5D898 /* ExerciseRepository.swift */; };
+		AC5F7ED72D8476A500E5D898 /* ModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7ED62D8476A500E5D898 /* ModelService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		AC5F7EAA2D7AFC5F00E5D898 /* SleepRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRepository.swift; sourceTree = "<group>"; };
 		AC5F7EAB2D7AFC5F00E5D898 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		AC5F7EB12D7B022C00E5D898 /* Arista.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Arista.xctestplan; sourceTree = "<group>"; };
+		AC5F7ED62D8476A500E5D898 /* ModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 				AC5F7EA92D7AFC5F00E5D898 /* ExerciseRepository.swift */,
 				AC5F7EAA2D7AFC5F00E5D898 /* SleepRepository.swift */,
 				AC5F7EAB2D7AFC5F00E5D898 /* UserRepository.swift */,
+				AC5F7ED62D8476A500E5D898 /* ModelService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				53E5876B2B23648500E4EF99 /* ExerciseListViewModel.swift in Sources */,
 				53E5873D2B235E9000E4EF99 /* Arista.xcdatamodeld in Sources */,
 				53E5876D2B236D9E00E4EF99 /* AddExerciseView.swift in Sources */,
+				AC5F7ED72D8476A500E5D898 /* ModelService.swift in Sources */,
 				53E5876F2B236DBC00E4EF99 /* AddExerciseViewModel.swift in Sources */,
 				53E587692B23616A00E4EF99 /* UserDataViewModel.swift in Sources */,
 			);

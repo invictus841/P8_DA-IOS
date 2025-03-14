@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-//import CoreData
 
 struct AddExerciseView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: AddExerciseViewModel
+    @Environment(\.managedObjectContext) var managedObjectContext // Get the context here
     @State private var showingErrorAlert = false
 
     let durationRange = 0...120
@@ -18,102 +18,66 @@ struct AddExerciseView: View {
 
     let exerciseCategories = ["Football", "Natation", "Running", "Marche", "Cyclisme", "Divers"]
 
+    // State variable to track form validity
     @State private var isFormValid = false
+
+    init(viewModel: AddExerciseViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         NavigationView {
             VStack {
                 Form {
-                    Section {
-                        Picker("Catégorie", selection: $viewModel.category) {
-                            ForEach(exerciseCategories, id: \.self) { category in
-                                Text(category)
-                            }
+                    Picker("Catégorie", selection: $viewModel.category) {
+                        ForEach(exerciseCategories, id: \.self) { category in
+                            Text(category)
                         }
-                        .foregroundColor(.primary)
-                    } header: {
-                        Text("Catégorie")
-                            .font(.headline)
-                            .foregroundColor(.gray)
                     }
 
-                    Section {
-                        DatePicker(
-                            "Heure de démarrage",
-                            selection: $viewModel.startTime,
-                            displayedComponents: [.date, .hourAndMinute]
-                        )
-                        .foregroundColor(.primary)
-                    } header: {
-                        Text("Heure de démarrage")
-                            .font(.headline)
-                            .foregroundColor(.gray)
-                    }
+                    DatePicker(
+                        "Heure de démarrage",
+                        selection: $viewModel.startTime,
+                        displayedComponents: [.date, .hourAndMinute]
+                    )
 
-                    Section {
-                        Picker("Durée (en minutes)", selection: $viewModel.duration) {
-                            ForEach(durationRange, id: \.self) { duration in
-                                Text("\(duration) minutes")
-                            }
+                    Picker("Durée (en minutes)", selection: $viewModel.duration) {
+                        ForEach(durationRange, id: \.self) { duration in
+                            Text("\(duration) minutes")
                         }
-                        .foregroundColor(.primary)
-                    } header: {
-                        Text("Durée")
-                            .font(.headline)
-                            .foregroundColor(.gray)
                     }
 
-                    Section {
-                        Picker("Intensité (0 à 10)", selection: $viewModel.intensity) {
-                            ForEach(intensityRange, id: \.self) { intensity in
-                                Text("\(intensity)")
-                            }
+                    Picker("Intensité (0 à 10)", selection: $viewModel.intensity) {
+                        ForEach(intensityRange, id: \.self) { intensity in
+                            Text("\(intensity)")
                         }
-                        .foregroundColor(.primary)
-                    } header: {
-                        Text("Intensité")
-                            .font(.headline)
-                            .foregroundColor(.gray)
                     }
-
                 }
                 .formStyle(.grouped)
-                .scrollContentBackground(.hidden)
-                .background(Color(.systemGroupedBackground))
                 .onChange(of: viewModel.category) { oldValue, newValue in validateForm() }
                 .onChange(of: viewModel.startTime) { oldValue, newValue in validateForm() }
                 .onChange(of: viewModel.duration) { oldValue, newValue in validateForm() }
                 .onChange(of: viewModel.intensity) { oldValue, newValue in validateForm() }
 
+                Spacer()
+
                 if !isFormValid {
-                    Text("Veuillez remplir tous les champs pour ajouter l'exercice.")
+                    Text("Veuillez remplir tous les champs pour ajouter l'exercice.") // Validation message
                         .font(.caption)
                         .foregroundColor(.red)
                         .padding(.horizontal)
                 }
 
                 Button("Ajouter l'exercice") {
-                    if viewModel.addExercise() {
+                    if viewModel.addExercise() { //Pass in the context
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
                 .buttonStyle(.borderedProminent)
-                .disabled(!isFormValid)
-                .padding(.bottom)
-
+                .disabled(!isFormValid) // Disable the button if the form is invalid
             }
-            .navigationTitle("Nouvel Exercice")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Fermer") {
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                }
-            }
-            .background(Color(.systemGroupedBackground))
-
-            .onChange(of: viewModel.error) {
+            .navigationTitle("Nouvel Exercice ...")
+            .onChange(of: viewModel.error) { oldValue, newValue in
                 showingErrorAlert = viewModel.error != nil
             }
             .alert(isPresented: $showingErrorAlert) {
@@ -135,5 +99,8 @@ struct AddExerciseView: View {
 }
 
 #Preview {
-    AddExerciseView(viewModel: AddExerciseViewModel(context: PersistenceController.preview.container.viewContext))
+    let modelService = ModelService(context: PersistenceController.preview.container.viewContext)
+    let viewModel = AddExerciseViewModel(modelService: modelService)
+    return AddExerciseView(viewModel: viewModel)
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
