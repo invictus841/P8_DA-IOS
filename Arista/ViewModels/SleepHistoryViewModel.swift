@@ -5,25 +5,24 @@
 //  Created by Vincent Saluzzo on 08/12/2023.
 //
 
-import SwiftUI
-import CoreData
+import Foundation
 
 class SleepHistoryViewModel: ObservableObject {
-    @Published var sleepSessions = [Sleep]()
+    @Published var sleepSessions = [SleepData]() // Use SleepData DTO
     @Published var error: Error?
 
-    private var viewContext: NSManagedObjectContext
+    private let modelService: ModelServiceProtocol // Inject ModelServiceProtocol
 
-    init(context: NSManagedObjectContext) {
-        self.viewContext = context
+    init(modelService: ModelServiceProtocol) {
+        self.modelService = modelService
+        fetchSleepSessions()
     }
 
     func fetchSleepSessions() {
         do {
-            let data = SleepRepository(viewContext: viewContext)
-            sleepSessions = try data.getSleepSessions()
+            sleepSessions = try modelService.getSleepSessions() // Get SleepData
         } catch {
-            self.error = error
+            self.error = error as? AppError //Ensure it is an app error
         }
     }
 }
