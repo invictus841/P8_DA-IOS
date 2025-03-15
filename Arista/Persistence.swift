@@ -7,8 +7,6 @@
 
 import CoreData
 
-import CoreData
-
 struct PersistenceController {
     static let shared = PersistenceController()
 
@@ -20,6 +18,7 @@ struct PersistenceController {
         } catch {
             let nsError = error as NSError
             print("Unresolved error \(nsError), \(nsError.userInfo)")
+            // Handle the error appropriately in a real app
         }
         return result
     }()
@@ -34,7 +33,11 @@ struct PersistenceController {
 
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
+                // Handle the error gracefully instead of fatalError
                 print("Error loading persistent stores: \(error), \(error.userInfo)")
+
+                // In a real application, you would present an error message to the user
+                // and potentially offer options to retry loading the store or reset the app.
             }
         })
 
@@ -42,9 +45,11 @@ struct PersistenceController {
 
         if applyDefaultData {
             do {
-                try DefaultData(viewContext: container.viewContext).apply()
+                let modelService = ModelService(context: container.viewContext)
+                try modelService.applyDefaultData()
             } catch {
                 print("Error applying default data: \(error)")
+                // Handle or re-throw the error appropriately
             }
         }
     }
