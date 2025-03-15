@@ -12,6 +12,7 @@ enum AppError: Error, Equatable {
     case coreDataError(Error)
     case unknown(String)
     case noUserFound
+    case exerciseNotFound
 
     var localizedDescription: String {
         switch self {
@@ -23,7 +24,10 @@ enum AppError: Error, Equatable {
             return "An unknown error occurred: \(message)"
         case .noUserFound:
             return "No User Found"
+        case .exerciseNotFound:
+            return "Exercise not found"
         }
+   
     }
 
     static func == (lhs: AppError, rhs: AppError) -> Bool {
