@@ -6,12 +6,10 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ExerciseListView: View {
-    @ObservedObject var viewModel: ExerciseListViewModel
+    @ObservedObject var viewModel: ExerciseViewModel
     @State private var showingAddExerciseView = false
-    @Environment(\.managedObjectContext) private var managedObjectContext
 
     var body: some View {
         NavigationView {
@@ -43,10 +41,10 @@ struct ExerciseListView: View {
             }
             .background(Color(.systemGroupedBackground))
             .onAppear {
-                viewModel.reload()
+                viewModel.loadExercises()
             }
             .sheet(isPresented: $showingAddExerciseView) {
-                AddExerciseView(viewModel: AddExerciseViewModel(modelService: ModelService(context: managedObjectContext)))
+                AddExerciseView(viewModel: viewModel) //Pass in the same view model instance
             }
         }
     }
@@ -74,13 +72,13 @@ struct ExerciseListView: View {
         }
 
         let exerciseToDelete = viewModel.exercises[index]
-        viewModel.deleteExercise(exercise: exerciseToDelete)
+        viewModel.deleteExercise(exercise: exerciseToDelete) //Pass in the DTO!
     }
 }
 
 // MARK: - ExerciseRow View
 struct ExerciseRow: View {
-    let exercise: Exercise
+    let exercise: ExerciseData
 
     var body: some View {
         ZStack {
@@ -89,13 +87,13 @@ struct ExerciseRow: View {
                 .shadow(color: Color.gray.opacity(0.3), radius: 3, x: 0, y: 2)
 
             HStack {
-                Image(systemName: iconForCategory(exercise.category ?? "football"))
+                Image(systemName: iconForCategory(exercise.category))
                     .font(.title2)
                     .foregroundColor(.blue)
                     .padding(.leading)
 
                 VStack(alignment: .leading) {
-                    Text(exercise.category ?? "undefined category")
+                    Text(exercise.category)
                         .font(.headline)
                         .foregroundColor(.primary)
 
@@ -103,7 +101,7 @@ struct ExerciseRow: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
 
-                    Text(exercise.startDate?.formatted(date: .abbreviated, time: .shortened) ?? "Date non définie")
+                    Text(exercise.startDate.formatted(date: .abbreviated, time: .shortened))
                         .font(.caption)
                         .foregroundColor(.gray)
                 }
@@ -111,7 +109,7 @@ struct ExerciseRow: View {
 
                 Spacer()
 
-                IntensityIndicator(intensity: exercise.intensity)
+                IntensityIndicator(intensity: Int64(exercise.intensity))
                     .padding(.trailing)
             }
             .padding(.horizontal)
@@ -188,5 +186,5 @@ struct NoExercisesView: View {
 }
 
 #Preview {
-    ExerciseListView(viewModel: ExerciseListViewModel(context: PersistenceController.preview.container.viewContext))
+    ExerciseListView(viewModel: ExerciseViewModel(modelService: PersistenceController.preview.container.viewContext as! ModelServiceProtocol))
 }
