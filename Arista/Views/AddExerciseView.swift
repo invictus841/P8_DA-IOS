@@ -9,8 +9,7 @@ import SwiftUI
 
 struct AddExerciseView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel: AddExerciseViewModel
-    @Environment(\.managedObjectContext) var managedObjectContext // Get the context here
+    @ObservedObject var viewModel: ExerciseViewModel // Use the combined view model
     @State private var showingErrorAlert = false
 
     let durationRange = 0...120
@@ -20,10 +19,6 @@ struct AddExerciseView: View {
 
     // State variable to track form validity
     @State private var isFormValid = false
-
-    init(viewModel: AddExerciseViewModel) {
-        self.viewModel = viewModel
-    }
 
     var body: some View {
         NavigationView {
@@ -37,7 +32,7 @@ struct AddExerciseView: View {
 
                     DatePicker(
                         "Heure de démarrage",
-                        selection: $viewModel.startTime,
+                        selection: $viewModel.startDate,
                         displayedComponents: [.date, .hourAndMinute]
                     )
 
@@ -55,7 +50,7 @@ struct AddExerciseView: View {
                 }
                 .formStyle(.grouped)
                 .onChange(of: viewModel.category) { oldValue, newValue in validateForm() }
-                .onChange(of: viewModel.startTime) { oldValue, newValue in validateForm() }
+                .onChange(of: viewModel.startDate) { oldValue, newValue in validateForm() }
                 .onChange(of: viewModel.duration) { oldValue, newValue in validateForm() }
                 .onChange(of: viewModel.intensity) { oldValue, newValue in validateForm() }
 
@@ -69,7 +64,7 @@ struct AddExerciseView: View {
                 }
 
                 Button("Ajouter l'exercice") {
-                    if viewModel.addExercise() { //Pass in the context
+                    if viewModel.addExercise() {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
@@ -100,7 +95,7 @@ struct AddExerciseView: View {
 
 #Preview {
     let modelService = ModelService(context: PersistenceController.preview.container.viewContext)
-    let viewModel = AddExerciseViewModel(modelService: modelService)
+    let viewModel = ExerciseViewModel(modelService: modelService)
     return AddExerciseView(viewModel: viewModel)
         .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
