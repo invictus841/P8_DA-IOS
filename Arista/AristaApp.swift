@@ -10,28 +10,43 @@ import SwiftUI
 @main
 struct AristaApp: App {
     let persistenceController = PersistenceController.shared
+
+    private var exerciseViewModel: ExerciseViewModel {
+        let modelService = ModelService(context: persistenceController.container.viewContext)
+        return ExerciseViewModel(modelService: modelService)
+    }
     
+    private var userDataViewModel: UserDataViewModel {
+        let modelService = ModelService(context: persistenceController.container.viewContext)
+        return UserDataViewModel(modelService: modelService)
+    }
+    
+    private var sleepHistoryViewModel: SleepHistoryViewModel {
+        let modelService = ModelService(context: persistenceController.container.viewContext)
+        return SleepHistoryViewModel(modelService: modelService)
+    }
+
     var body: some Scene {
         WindowGroup {
             TabView {
-                UserDataView(viewModel: UserDataViewModel(context: persistenceController.container.viewContext))
+                UserDataView(viewModel: userDataViewModel)
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
                     .tabItem {
                         Label("Utilisateur", systemImage: "person")
                     }
-                
-                ExerciseListView(viewModel: ExerciseListViewModel(context: persistenceController.container.viewContext))
+
+                ExerciseListView(viewModel: exerciseViewModel)
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
                     .tabItem {
                         Label("Exercices", systemImage: "flame")
                     }
-                
-                SleepHistoryView(viewModel: SleepHistoryViewModel(context: persistenceController.container.viewContext))
+
+                SleepHistoryView(viewModel: sleepHistoryViewModel)
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
                     .tabItem {
                         Label("Sommeil", systemImage: "moon")
                     }
-                
+
             }
         }
     }
