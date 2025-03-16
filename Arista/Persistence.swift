@@ -11,7 +11,7 @@ struct PersistenceController {
     static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
-        let result = PersistenceController(inMemory: true, applyDefaultData: false)
+        let result = PersistenceController(inMemory: true, applyDefaultData: true)
         let viewContext = result.container.viewContext
         do {
             try viewContext.save()
@@ -25,7 +25,7 @@ struct PersistenceController {
 
     let container: NSPersistentContainer
 
-    init(inMemory: Bool = false, applyDefaultData: Bool = true) {
+    init(inMemory: Bool = false, applyDefaultData: Bool = false) {
         container = NSPersistentContainer(name: "Arista")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
