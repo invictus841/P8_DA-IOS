@@ -21,9 +21,9 @@ struct AristaApp: App {
         return UserDataViewModel(modelService: modelService)
     }
     
-    private var sleepHistoryViewModel: SleepHistoryViewModel {
+    private var sleepHistoryViewModel: SleepViewModel {
         let modelService = ModelService(context: persistenceController.container.viewContext)
-        return SleepHistoryViewModel(modelService: modelService)
+        return SleepViewModel(modelService: modelService)
     }
 
     var body: some Scene {

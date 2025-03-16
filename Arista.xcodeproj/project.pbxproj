@@ -20,7 +20,7 @@
 		53E587672B23600C00E4EF99 /* SleepHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E587662B23600C00E4EF99 /* SleepHistoryView.swift */; };
 		53E587692B23616A00E4EF99 /* UserDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E587682B23616A00E4EF99 /* UserDataViewModel.swift */; };
 		53E5876D2B236D9E00E4EF99 /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E5876C2B236D9E00E4EF99 /* AddExerciseView.swift */; };
-		53E587712B23714800E4EF99 /* SleepHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E587702B23714800E4EF99 /* SleepHistoryViewModel.swift */; };
+		53E587712B23714800E4EF99 /* SleepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E587702B23714800E4EF99 /* SleepViewModel.swift */; };
 		AC5F7E972D7AE12D00E5D898 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7E962D7AE12D00E5D898 /* AppError.swift */; };
 		AC5F7E992D7AE51800E5D898 /* ExerciseRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7E982D7AE51800E5D898 /* ExerciseRepositoryTests.swift */; };
 		AC5F7E9D2D7AEEEA00E5D898 /* SleepRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7E9C2D7AEEEA00E5D898 /* SleepRepositoryTests.swift */; };
@@ -37,6 +37,7 @@
 		AC5F7EE32D84DC4800E5D898 /* ModelService+Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EE22D84DC4800E5D898 /* ModelService+Exercise.swift */; };
 		AC5F7EE52D84DC9C00E5D898 /* ModelService+Sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EE42D84DC9C00E5D898 /* ModelService+Sleep.swift */; };
 		AC5F7EE72D84DF6200E5D898 /* PreviewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EE62D84DF6200E5D898 /* PreviewHelpers.swift */; };
+		AC5F7EF52D863A0500E5D898 /* AddSleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EF42D863A0500E5D898 /* AddSleepView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +74,7 @@
 		53E587662B23600C00E4EF99 /* SleepHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepHistoryView.swift; sourceTree = "<group>"; };
 		53E587682B23616A00E4EF99 /* UserDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewModel.swift; sourceTree = "<group>"; };
 		53E5876C2B236D9E00E4EF99 /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
-		53E587702B23714800E4EF99 /* SleepHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepHistoryViewModel.swift; sourceTree = "<group>"; };
+		53E587702B23714800E4EF99 /* SleepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewModel.swift; sourceTree = "<group>"; };
 		AC5F7E962D7AE12D00E5D898 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		AC5F7E982D7AE51800E5D898 /* ExerciseRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRepositoryTests.swift; sourceTree = "<group>"; };
 		AC5F7E9C2D7AEEEA00E5D898 /* SleepRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRepositoryTests.swift; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		AC5F7EE22D84DC4800E5D898 /* ModelService+Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelService+Exercise.swift"; sourceTree = "<group>"; };
 		AC5F7EE42D84DC9C00E5D898 /* ModelService+Sleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelService+Sleep.swift"; sourceTree = "<group>"; };
 		AC5F7EE62D84DF6200E5D898 /* PreviewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelpers.swift; sourceTree = "<group>"; };
+		AC5F7EF42D863A0500E5D898 /* AddSleepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSleepView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				53E587622B235FF600E4EF99 /* UserDataView.swift */,
+				AC5F7EF42D863A0500E5D898 /* AddSleepView.swift */,
 				53E587642B23600400E4EF99 /* ExerciseListView.swift */,
 				53E587662B23600C00E4EF99 /* SleepHistoryView.swift */,
 				53E5876C2B236D9E00E4EF99 /* AddExerciseView.swift */,
@@ -197,7 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				53E587682B23616A00E4EF99 /* UserDataViewModel.swift */,
-				53E587702B23714800E4EF99 /* SleepHistoryViewModel.swift */,
+				53E587702B23714800E4EF99 /* SleepViewModel.swift */,
 				AC5F7ED82D847C5300E5D898 /* ExerciseViewModel.swift */,
 			);
 			path = ViewModels;
@@ -378,7 +381,8 @@
 			files = (
 				53E5873A2B235E9000E4EF99 /* Persistence.swift in Sources */,
 				AC5F7EE52D84DC9C00E5D898 /* ModelService+Sleep.swift in Sources */,
-				53E587712B23714800E4EF99 /* SleepHistoryViewModel.swift in Sources */,
+				AC5F7EF52D863A0500E5D898 /* AddSleepView.swift in Sources */,
+				53E587712B23714800E4EF99 /* SleepViewModel.swift in Sources */,
 				AC5F7E972D7AE12D00E5D898 /* AppError.swift in Sources */,
 				53E587632B235FF600E4EF99 /* UserDataView.swift in Sources */,
 				53E587672B23600C00E4EF99 /* SleepHistoryView.swift in Sources */,
