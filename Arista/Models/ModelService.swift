@@ -11,11 +11,14 @@ import CoreData
 protocol ModelServiceProtocol {
     func createUser(data: UserData) throws
     func getUser() throws -> UserData?
+    
     func addExercise(data: ExerciseData) throws
     func getExercises() throws -> [ExerciseData]
+    func deleteExercise(exercise: ExerciseData) throws
+    
     func addSleep(data: SleepData) throws
     func getSleepSessions() throws -> [SleepData]
-    func deleteExercise(exercise: ExerciseData) throws
+    func deleteSleep(sleep: SleepData) throws
 }
 
 class ModelService: ModelServiceProtocol {
