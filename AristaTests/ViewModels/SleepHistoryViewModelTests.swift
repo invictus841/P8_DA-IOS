@@ -37,7 +37,7 @@ class SleepHistoryViewModelTests: XCTestCase {
         let context = persistenceController.container.viewContext
 
         // When
-        let viewModel = SleepHistoryViewModel(context: context)
+        let viewModel = SleepViewModel(context: context)
 
         // Then
         XCTAssertTrue(viewModel.sleepSessions.isEmpty, "Sleep sessions should be initially empty")
@@ -55,7 +55,7 @@ class SleepHistoryViewModelTests: XCTestCase {
         addSleepSession(context: context, startDate: startDate, duration: duration, quality: quality)
 
         // When
-        let viewModel = SleepHistoryViewModel(context: context)
+        let viewModel = SleepViewModel(context: context)
         viewModel.fetchSleepSessions() // Call the function *after* initialization
 
         // Then
