@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddExerciseView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel: ExerciseViewModel // Use the combined view model
+    @ObservedObject var viewModel: ExerciseViewModel
     @State private var showingErrorAlert = false
 
     let durationRange = 0...120
@@ -17,7 +17,6 @@ struct AddExerciseView: View {
 
     let exerciseCategories = ["Football", "Natation", "Running", "Marche", "Cyclisme", "Divers"]
 
-    // State variable to track form validity
     @State private var isFormValid = false
 
     var body: some View {
@@ -57,7 +56,7 @@ struct AddExerciseView: View {
                 Spacer()
 
                 if !isFormValid {
-                    Text("Veuillez remplir tous les champs pour ajouter l'exercice.") // Validation message
+                    Text("Veuillez remplir tous les champs pour ajouter l'exercice.")
                         .font(.caption)
                         .foregroundColor(.red)
                         .padding(.horizontal)
@@ -69,7 +68,7 @@ struct AddExerciseView: View {
                     }
                 }
                 .buttonStyle(.borderedProminent)
-                .disabled(!isFormValid) // Disable the button if the form is invalid
+                .disabled(!isFormValid)
             }
             .navigationTitle("Nouvel Exercice ...")
             .onChange(of: viewModel.error) { oldValue, newValue in
