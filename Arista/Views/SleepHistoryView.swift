@@ -15,12 +15,12 @@ struct SleepHistoryView: View {
         NavigationView {
             List {
                 if viewModel.sleepSessions.isEmpty {
-                    NoSleepSessionsView() // Use a new view for the empty state
+                    NoSleepSessionsView()
                         .listRowSeparator(.hidden)
                         .listRowBackground(Color.clear)
                 } else {
                     ForEach(viewModel.sleepSessions) { session in
-                        SleepSessionRow(session: session) // Use a separate view for each row
+                        SleepSessionRow(session: session)
                             .listRowSeparator(.hidden)
                             .listRowBackground(Color.clear)
                             .listRowInsets(EdgeInsets())
@@ -29,8 +29,8 @@ struct SleepHistoryView: View {
                 }
             }
             .navigationTitle("Historique de Sommeil")
-            .navigationBarTitleDisplayMode(.inline) // Consistent title style
-            .background(Color(.systemGroupedBackground)) // Background color
+            .navigationBarTitleDisplayMode(.inline)
+            .background(Color(.systemGroupedBackground))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -41,7 +41,7 @@ struct SleepHistoryView: View {
                 }
             }
             .sheet(isPresented: $showingAddSleepView) {
-                AddSleepView(viewModel: viewModel) //Pass in the same view model instance
+                AddSleepView(viewModel: viewModel)
             }
         }
     }
@@ -59,7 +59,7 @@ struct SleepHistoryView: View {
 // MARK: - SleepSessionRow View
 
 struct SleepSessionRow: View {
-    let session: SleepData // Replace with your actual SleepSession type
+    let session: SleepData
 
     var body: some View {
         ZStack {
@@ -72,7 +72,7 @@ struct SleepSessionRow: View {
                     .padding(.leading)
 
                 VStack(alignment: .leading) {
-                    Text("Début : \(session.startDate.formatted(date: .abbreviated, time: .shortened))") //Formatted Date
+                    Text("Début : \(session.startDate.formatted(date: .abbreviated, time: .shortened))")
                         .font(.headline)
                         .foregroundColor(.primary)
 
@@ -82,12 +82,12 @@ struct SleepSessionRow: View {
                 }
                 .padding(.vertical, 8)
 
-                Spacer() // Push content to the sides
+                Spacer()
             }
             .padding(.horizontal)
             .padding(.vertical, 4)
         }
-        .padding(.vertical, 4) // Add spacing between the rows
+        .padding(.vertical, 4)
     }
 }
 
@@ -127,7 +127,7 @@ struct QualityIndicator: View {
 struct NoSleepSessionsView: View {
     var body: some View {
         VStack {
-            Image(systemName: "moon.zzz") // Example icon
+            Image(systemName: "moon.zzz")
                 .font(.system(size: 60))
                 .foregroundColor(.gray)
                 .padding()
@@ -141,7 +141,7 @@ struct NoSleepSessionsView: View {
                 .font(.body)
                 .foregroundColor(.gray)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity) // Take up the full List space
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .multilineTextAlignment(.center)
         .padding()
     }
