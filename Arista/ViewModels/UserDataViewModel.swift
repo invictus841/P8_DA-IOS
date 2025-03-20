@@ -5,7 +5,7 @@
 //  Created by Vincent Saluzzo on 08/12/2023.
 //
 
-import Foundation // No CoreData!
+import Foundation
 
 class UserDataViewModel: ObservableObject {
     @Published var firstName: String = ""
@@ -13,7 +13,7 @@ class UserDataViewModel: ObservableObject {
 
     @Published var error: Error?
 
-    private let modelService: ModelServiceProtocol // Inject ModelServiceProtocol
+    private let modelService: ModelServiceProtocol
 
     init(modelService: ModelServiceProtocol) {
         self.modelService = modelService
@@ -22,17 +22,18 @@ class UserDataViewModel: ObservableObject {
 
     private func fetchUserData() {
         do {
-            if let user = try modelService.getUser() { // Get UserData
+            if let user = try modelService.getUser() {
+                
                 firstName = user.firstName
                 lastName = user.lastName
             } else {
-                // Handle the case where no user exists
+                
                 firstName = ""
                 lastName = ""
                 error = AppError.noUserFound
             }
         } catch {
-            self.error = error as? AppError //Ensure it is an app error
+            self.error = error as? AppError
         }
     }
 }
