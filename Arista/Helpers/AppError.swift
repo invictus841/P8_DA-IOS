@@ -38,6 +38,10 @@ enum AppError: Error, Equatable {
             return a.localizedDescription == b.localizedDescription
         case (.unknown(let a), .unknown(let b)):
             return a == b
+        case (.noUserFound, .noUserFound):
+            return true
+        case (.exerciseNotFound, .exerciseNotFound):
+            return true
         default:
             return false
         }

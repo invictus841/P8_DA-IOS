@@ -22,12 +22,11 @@
 		53E5876D2B236D9E00E4EF99 /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E5876C2B236D9E00E4EF99 /* AddExerciseView.swift */; };
 		53E587712B23714800E4EF99 /* SleepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E587702B23714800E4EF99 /* SleepViewModel.swift */; };
 		AC5F7E972D7AE12D00E5D898 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7E962D7AE12D00E5D898 /* AppError.swift */; };
-		AC5F7E992D7AE51800E5D898 /* ExerciseRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7E982D7AE51800E5D898 /* ExerciseRepositoryTests.swift */; };
-		AC5F7E9D2D7AEEEA00E5D898 /* SleepRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7E9C2D7AEEEA00E5D898 /* SleepRepositoryTests.swift */; };
-		AC5F7E9F2D7AEFE900E5D898 /* UserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7E9E2D7AEFE900E5D898 /* UserRepositoryTests.swift */; };
-		AC5F7EA32D7AF13400E5D898 /* ExerciseListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EA22D7AF13400E5D898 /* ExerciseListViewModelTests.swift */; };
-		AC5F7EA52D7AF26800E5D898 /* SleepHistoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EA42D7AF26800E5D898 /* SleepHistoryViewModelTests.swift */; };
-		AC5F7EA72D7AF45F00E5D898 /* AddExerciseViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EA62D7AF45F00E5D898 /* AddExerciseViewModelTests.swift */; };
+		AC5F7E992D7AE51800E5D898 /* ModelServiceExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7E982D7AE51800E5D898 /* ModelServiceExerciseTests.swift */; };
+		AC5F7E9D2D7AEEEA00E5D898 /* ModelServiceSleepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7E9C2D7AEEEA00E5D898 /* ModelServiceSleepTests.swift */; };
+		AC5F7E9F2D7AEFE900E5D898 /* ModelServiceUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7E9E2D7AEFE900E5D898 /* ModelServiceUserTests.swift */; };
+		AC5F7EA52D7AF26800E5D898 /* SleepViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EA42D7AF26800E5D898 /* SleepViewModelTests.swift */; };
+		AC5F7EA72D7AF45F00E5D898 /* ExerciseViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EA62D7AF45F00E5D898 /* ExerciseViewModelTests.swift */; };
 		AC5F7ED72D8476A500E5D898 /* ModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7ED62D8476A500E5D898 /* ModelService.swift */; };
 		AC5F7ED92D847C5300E5D898 /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7ED82D847C5300E5D898 /* ExerciseViewModel.swift */; };
 		AC5F7EDB2D84D82F00E5D898 /* ModelService+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EDA2D84D82F00E5D898 /* ModelService+User.swift */; };
@@ -38,6 +37,7 @@
 		AC5F7EE52D84DC9C00E5D898 /* ModelService+Sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EE42D84DC9C00E5D898 /* ModelService+Sleep.swift */; };
 		AC5F7EE72D84DF6200E5D898 /* PreviewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EE62D84DF6200E5D898 /* PreviewHelpers.swift */; };
 		AC5F7EF52D863A0500E5D898 /* AddSleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F7EF42D863A0500E5D898 /* AddSleepView.swift */; };
+		ACEAD8B12D8CA3DF0093E45E /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAD8B02D8CA3DF0093E45E /* UserViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,12 +76,11 @@
 		53E5876C2B236D9E00E4EF99 /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
 		53E587702B23714800E4EF99 /* SleepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewModel.swift; sourceTree = "<group>"; };
 		AC5F7E962D7AE12D00E5D898 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
-		AC5F7E982D7AE51800E5D898 /* ExerciseRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRepositoryTests.swift; sourceTree = "<group>"; };
-		AC5F7E9C2D7AEEEA00E5D898 /* SleepRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRepositoryTests.swift; sourceTree = "<group>"; };
-		AC5F7E9E2D7AEFE900E5D898 /* UserRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTests.swift; sourceTree = "<group>"; };
-		AC5F7EA22D7AF13400E5D898 /* ExerciseListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewModelTests.swift; sourceTree = "<group>"; };
-		AC5F7EA42D7AF26800E5D898 /* SleepHistoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepHistoryViewModelTests.swift; sourceTree = "<group>"; };
-		AC5F7EA62D7AF45F00E5D898 /* AddExerciseViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseViewModelTests.swift; sourceTree = "<group>"; };
+		AC5F7E982D7AE51800E5D898 /* ModelServiceExerciseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelServiceExerciseTests.swift; sourceTree = "<group>"; };
+		AC5F7E9C2D7AEEEA00E5D898 /* ModelServiceSleepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelServiceSleepTests.swift; sourceTree = "<group>"; };
+		AC5F7E9E2D7AEFE900E5D898 /* ModelServiceUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelServiceUserTests.swift; sourceTree = "<group>"; };
+		AC5F7EA42D7AF26800E5D898 /* SleepViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewModelTests.swift; sourceTree = "<group>"; };
+		AC5F7EA62D7AF45F00E5D898 /* ExerciseViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModelTests.swift; sourceTree = "<group>"; };
 		AC5F7EB12D7B022C00E5D898 /* Arista.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Arista.xctestplan; sourceTree = "<group>"; };
 		AC5F7ED62D8476A500E5D898 /* ModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelService.swift; sourceTree = "<group>"; };
 		AC5F7ED82D847C5300E5D898 /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
@@ -93,6 +92,7 @@
 		AC5F7EE42D84DC9C00E5D898 /* ModelService+Sleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelService+Sleep.swift"; sourceTree = "<group>"; };
 		AC5F7EE62D84DF6200E5D898 /* PreviewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelpers.swift; sourceTree = "<group>"; };
 		AC5F7EF42D863A0500E5D898 /* AddSleepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSleepView.swift; sourceTree = "<group>"; };
+		ACEAD8B02D8CA3DF0093E45E /* UserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +144,7 @@
 		53E5872F2B235E8F00E4EF99 /* Arista */ = {
 			isa = PBXGroup;
 			children = (
+				ACEAD8B22D8CBE270093E45E /* Services */,
 				AC5F7EAC2D7AFC5F00E5D898 /* Models */,
 				AC5F7E952D7AE10B00E5D898 /* Helpers */,
 				53E587612B235FDC00E4EF99 /* ViewModels */,
@@ -169,7 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				AC5F7EA12D7AF0C700E5D898 /* ViewModels */,
-				AC5F7EA02D7AF0B900E5D898 /* Models */,
+				AC5F7EA02D7AF0B900E5D898 /* Services */,
 				53E587462B235E9000E4EF99 /* AristaTests.swift */,
 			);
 			path = AristaTests;
@@ -215,22 +216,22 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		AC5F7EA02D7AF0B900E5D898 /* Models */ = {
+		AC5F7EA02D7AF0B900E5D898 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				AC5F7E982D7AE51800E5D898 /* ExerciseRepositoryTests.swift */,
-				AC5F7E9C2D7AEEEA00E5D898 /* SleepRepositoryTests.swift */,
-				AC5F7E9E2D7AEFE900E5D898 /* UserRepositoryTests.swift */,
+				AC5F7E982D7AE51800E5D898 /* ModelServiceExerciseTests.swift */,
+				AC5F7E9C2D7AEEEA00E5D898 /* ModelServiceSleepTests.swift */,
+				AC5F7E9E2D7AEFE900E5D898 /* ModelServiceUserTests.swift */,
 			);
-			path = Models;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		AC5F7EA12D7AF0C700E5D898 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				AC5F7EA22D7AF13400E5D898 /* ExerciseListViewModelTests.swift */,
-				AC5F7EA42D7AF26800E5D898 /* SleepHistoryViewModelTests.swift */,
-				AC5F7EA62D7AF45F00E5D898 /* AddExerciseViewModelTests.swift */,
+				AC5F7EA42D7AF26800E5D898 /* SleepViewModelTests.swift */,
+				AC5F7EA62D7AF45F00E5D898 /* ExerciseViewModelTests.swift */,
+				ACEAD8B02D8CA3DF0093E45E /* UserViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -238,15 +239,22 @@
 		AC5F7EAC2D7AFC5F00E5D898 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AC5F7ED62D8476A500E5D898 /* ModelService.swift */,
-				AC5F7EDA2D84D82F00E5D898 /* ModelService+User.swift */,
 				AC5F7EDC2D84DBA400E5D898 /* UserData.swift */,
 				AC5F7EDE2D84DBC100E5D898 /* ExerciseData.swift */,
 				AC5F7EE02D84DBD300E5D898 /* SleepData.swift */,
-				AC5F7EE22D84DC4800E5D898 /* ModelService+Exercise.swift */,
-				AC5F7EE42D84DC9C00E5D898 /* ModelService+Sleep.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		ACEAD8B22D8CBE270093E45E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AC5F7EE22D84DC4800E5D898 /* ModelService+Exercise.swift */,
+				AC5F7EE42D84DC9C00E5D898 /* ModelService+Sleep.swift */,
+				AC5F7EDA2D84D82F00E5D898 /* ModelService+User.swift */,
+				AC5F7ED62D8476A500E5D898 /* ModelService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,13 +414,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC5F7EA52D7AF26800E5D898 /* SleepHistoryViewModelTests.swift in Sources */,
+				AC5F7EA52D7AF26800E5D898 /* SleepViewModelTests.swift in Sources */,
 				53E587472B235E9000E4EF99 /* AristaTests.swift in Sources */,
-				AC5F7EA32D7AF13400E5D898 /* ExerciseListViewModelTests.swift in Sources */,
-				AC5F7E9D2D7AEEEA00E5D898 /* SleepRepositoryTests.swift in Sources */,
-				AC5F7E9F2D7AEFE900E5D898 /* UserRepositoryTests.swift in Sources */,
-				AC5F7EA72D7AF45F00E5D898 /* AddExerciseViewModelTests.swift in Sources */,
-				AC5F7E992D7AE51800E5D898 /* ExerciseRepositoryTests.swift in Sources */,
+				AC5F7E9D2D7AEEEA00E5D898 /* ModelServiceSleepTests.swift in Sources */,
+				ACEAD8B12D8CA3DF0093E45E /* UserViewModelTests.swift in Sources */,
+				AC5F7E9F2D7AEFE900E5D898 /* ModelServiceUserTests.swift in Sources */,
+				AC5F7EA72D7AF45F00E5D898 /* ExerciseViewModelTests.swift in Sources */,
+				AC5F7E992D7AE51800E5D898 /* ModelServiceExerciseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
