@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddSleepView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel: SleepViewModel //Here, you were using exericse view model.
+    @ObservedObject var viewModel: SleepViewModel
     @State private var showingErrorAlert = false
 
     @State private var sleepDurationHours: Int = 8
@@ -40,7 +40,7 @@ struct AddSleepView: View {
                     }
 
                     Section(header: Text("Qualité du Sommeil (0 à 10)")) {
-                        Picker("Qualité", selection: $viewModel.quality) { //this would not work.
+                        Picker("Qualité", selection: $viewModel.quality) {
                             ForEach(qualityRange, id: \.self) { quality in
                                 Text("\(quality)")
                             }
