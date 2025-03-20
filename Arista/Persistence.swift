@@ -11,7 +11,7 @@ struct PersistenceController {
     static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
-        let result = PersistenceController(inMemory: true, applyDefaultData: true)
+        let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         do {
             try viewContext.save()
@@ -25,7 +25,7 @@ struct PersistenceController {
 
     let container: NSPersistentContainer
 
-    init(inMemory: Bool = false, applyDefaultData: Bool = false) {
+    init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "Arista")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
@@ -43,14 +43,14 @@ struct PersistenceController {
 
         container.viewContext.automaticallyMergesChangesFromParent = true
 
-        if applyDefaultData {
-            do {
-                let modelService = ModelService(context: container.viewContext)
-                try modelService.applyDefaultData()
-            } catch {
-                print("Error applying default data: \(error)")
-                // Handle or re-throw the error appropriately
-            }
-        }
+//        if applyDefaultData {
+//            do {
+//                let modelService = ModelService(context: container.viewContext)
+//                try modelService.applyDefaultData()
+//            } catch {
+//                print("Error applying default data: \(error)")
+//                // Handle or re-throw the error appropriately
+//            }
+//        }
     }
 }
