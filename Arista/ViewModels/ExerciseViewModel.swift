@@ -5,26 +5,24 @@
 //  Created by Alexandre Talatinian on 14/03/2025.
 //
 
-import Foundation // No import CoreData!
+import Foundation
 
 class ExerciseViewModel: ObservableObject {
-    @Published var category: String = ""  // For AddExerciseView
-    @Published var startDate: Date = Date() // For AddExerciseView
-    @Published var duration: Int = 0       // For AddExerciseView
-    @Published var intensity: Int = 0      // For AddExerciseView
+    @Published var category: String = ""
+    @Published var startDate: Date = Date()
+    @Published var duration: Int = 0
+    @Published var intensity: Int = 0
 
-    @Published var exercises: [ExerciseData] = [] // For ExerciseListView
+    @Published var exercises: [ExerciseData] = []
 
     @Published var error: AppError? = nil
 
-    private let modelService: ModelServiceProtocol // Inject ModelServiceProtocol, NO Core Data
+    private let modelService: ModelServiceProtocol
 
     init(modelService: ModelServiceProtocol) {
         self.modelService = modelService
         loadExercises()
     }
-
-    // MARK: - Add Exercise Functionality
 
     func addExercise() -> Bool {
         let exerciseData = ExerciseData(
@@ -37,9 +35,9 @@ class ExerciseViewModel: ObservableObject {
 
         do {
             try modelService.addExercise(data: exerciseData)
-            //Clear the fields after the action is done.
+
             clearAddExerciseFields()
-            loadExercises() // Refresh the list after adding
+            loadExercises()
             return true
         } catch {
             if let appError = error as? AppError {
@@ -51,7 +49,6 @@ class ExerciseViewModel: ObservableObject {
         }
     }
 
-    //Clears the add exercise fields so that the previously entered data is not there.
     func clearAddExerciseFields() {
         category = ""
         startDate = Date()
@@ -59,13 +56,11 @@ class ExerciseViewModel: ObservableObject {
         intensity = 0
     }
 
-    // MARK: - Exercise List Functionality
-
     func loadExercises() {
         do {
             exercises = try modelService.getExercises()
         } catch {
-            self.error = error as? AppError //Ensure AppError
+            self.error = error as? AppError
         }
     }
 
@@ -74,7 +69,7 @@ class ExerciseViewModel: ObservableObject {
             try modelService.deleteExercise(exercise: exercise)
             print("Exercise deleted successfully!")
             
-            loadExercises() // Refreshes the list for the UI
+            loadExercises()
         } catch {
             self.error = error as? AppError
         }
