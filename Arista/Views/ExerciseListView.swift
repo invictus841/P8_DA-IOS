@@ -44,7 +44,7 @@ struct ExerciseListView: View {
                 viewModel.loadExercises()
             }
             .sheet(isPresented: $showingAddExerciseView) {
-                AddExerciseView(viewModel: viewModel) //Pass in the same view model instance
+                AddExerciseView(viewModel: viewModel)
             }
         }
     }
@@ -72,7 +72,7 @@ struct ExerciseListView: View {
         }
 
         let exerciseToDelete = viewModel.exercises[index]
-        viewModel.deleteExercise(exercise: exerciseToDelete) //Pass in the DTO!
+        viewModel.deleteExercise(exercise: exerciseToDelete)
     }
 }
 
