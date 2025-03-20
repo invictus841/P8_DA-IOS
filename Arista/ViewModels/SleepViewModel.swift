@@ -8,14 +8,14 @@
 import Foundation
 
 class SleepViewModel: ObservableObject {
-    @Published var sleepSessions = [SleepData]() // Use SleepData DTO
+    @Published var sleepSessions = [SleepData]()
     @Published var error: AppError? = nil
     
     @Published var duration: Int = 0
     @Published var quality: Int = 0
     @Published var startDate: Date = Date()
 
-    private let modelService: ModelServiceProtocol // Inject ModelServiceProtocol
+    private let modelService: ModelServiceProtocol
 
     init(modelService: ModelServiceProtocol) {
         self.modelService = modelService
@@ -24,9 +24,9 @@ class SleepViewModel: ObservableObject {
 
     func fetchSleepSessions() {
         do {
-            sleepSessions = try modelService.getSleepSessions() // Get SleepData
+            sleepSessions = try modelService.getSleepSessions()
         } catch {
-            self.error = error as? AppError //Ensure it is an app error
+            self.error = error as? AppError
         }
     }
     
@@ -48,9 +48,8 @@ class SleepViewModel: ObservableObject {
                 try modelService.addSleep(data: sleepData)
                 print("Sleep added successfully!")
                 
-                //Clear the fields after the action is done.
                 clearAddSleepFields()
-                fetchSleepSessions() // Refresh the list after adding
+                fetchSleepSessions()
                 return true
             } catch {
                 if let appError = error as? AppError {
@@ -67,7 +66,7 @@ class SleepViewModel: ObservableObject {
             try modelService.deleteSleep(sleep: sleep)
             print("Sleep deleted successfully!")
             
-            fetchSleepSessions() // Refreshes the list for the UI
+            fetchSleepSessions()
         } catch {
             self.error = error as? AppError
         }
