@@ -8,7 +8,7 @@
 import Foundation
 
 class ExerciseViewModel: ObservableObject {
-    @Published var category: String = ""
+    @Published var category: String = "Football"
     @Published var startDate: Date = Date()
     @Published var duration: Int = 0
     @Published var intensity: Int = 0
