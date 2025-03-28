@@ -64,7 +64,7 @@ class ExerciseViewModelTests: XCTestCase {
         let modelService = ModelService(context: context)
         
         // Add some exercises to the database
-        let exercise1 = addExerciseToDatabase(
+        _ = addExerciseToDatabase(
             context: context,
             user: user,
             category: "Running",
@@ -73,7 +73,7 @@ class ExerciseViewModelTests: XCTestCase {
             startDate: Date()
         )
         
-        let exercise2 = addExerciseToDatabase(
+        _ = addExerciseToDatabase(
             context: context,
             user: user,
             category: "Swimming",
@@ -155,7 +155,7 @@ class ExerciseViewModelTests: XCTestCase {
         let context = persistenceController.container.viewContext
         emptyEntities(context: context)
         
-        let user = createUser(context: context)
+        _ = createUser(context: context)
         let modelService = ModelService(context: context)
         
         // Create the view model
@@ -175,7 +175,7 @@ class ExerciseViewModelTests: XCTestCase {
         
         // Then
         XCTAssertNotNil(viewModel.error, "Error should not be nil")
-        if let error = viewModel.error as? AppError {
+        if let error = viewModel.error {
             XCTAssertTrue(error == .exerciseNotFound, "Should be exerciseNotFound error")
         } else {
             XCTFail("Error should be AppError.exerciseNotFound")
@@ -211,7 +211,7 @@ class ExerciseViewModelTests: XCTestCase {
         let context = persistenceController.container.viewContext
         emptyEntities(context: context)
         
-        let user = createUser(context: context)
+        _ = createUser(context: context)
         let modelService = ModelService(context: context)
         
         let viewModel = ExerciseViewModel(modelService: modelService)

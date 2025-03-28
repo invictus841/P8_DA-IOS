@@ -92,9 +92,3 @@ struct AddExerciseView: View {
     }
 }
 
-#Preview {
-    let modelService = ModelService(context: PersistenceController.preview.container.viewContext)
-    let viewModel = ExerciseViewModel(modelService: modelService)
-    return AddExerciseView(viewModel: viewModel)
-        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-}

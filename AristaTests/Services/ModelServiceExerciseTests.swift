@@ -30,6 +30,7 @@ class ModelServiceExerciseTests: XCTestCase {
         try! context.save()
     }
     
+    @discardableResult
     private func createUser(context: NSManagedObjectContext) -> User {
         let user = User(context: context)
         user.firstName = "Test"
@@ -163,7 +164,7 @@ class ModelServiceExerciseTests: XCTestCase {
         let persistenceController = PersistenceController(inMemory: true)
         let context = persistenceController.container.viewContext
         emptyEntities(context: context)
-        let user = createUser(context: context)
+        createUser(context: context)
         let modelService = ModelService(context: context)
         
         let testCategory = "Swimming"

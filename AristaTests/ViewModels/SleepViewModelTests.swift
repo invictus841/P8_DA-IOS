@@ -135,7 +135,7 @@ class SleepViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.sleepSessions.count, 0, "Sleep sessions should be empty")
         XCTAssertNotNil(viewModel.error, "Error should not be nil")
         
-        if let error = viewModel.error as? AppError {
+        if let error = viewModel.error {
             switch error {
             case .coreDataError(_):
                 // Expected error type
@@ -175,7 +175,7 @@ class SleepViewModelTests: XCTestCase {
         let context = persistenceController.container.viewContext
         emptyEntities(context: context)
         
-        let user = createUser(context: context)
+        _ = createUser(context: context)
         let modelService = ModelService(context: context)
         
         let viewModel = SleepViewModel(modelService: modelService)
@@ -292,7 +292,7 @@ class SleepViewModelTests: XCTestCase {
         let context = persistenceController.container.viewContext
         emptyEntities(context: context)
         
-        let user = createUser(context: context)
+        _ = createUser(context: context)
         let modelService = ModelService(context: context)
         
         // Create the view model
@@ -311,7 +311,7 @@ class SleepViewModelTests: XCTestCase {
         
         // Then
         XCTAssertNotNil(viewModel.error, "Error should not be nil")
-        if let error = viewModel.error as? AppError {
+        if let error = viewModel.error {
             XCTAssertTrue(error == .exerciseNotFound, "Should be exerciseNotFound error")
         } else {
             XCTFail("Error should be AppError.exerciseNotFound")

@@ -119,9 +119,9 @@ class ModelServiceSleepTests: XCTestCase {
         let quality2: Int64 = 4
         let quality3: Int64 = 3
 
-        addSleepSession(context: context, user: user, startDate: date1, duration: duration1, quality: quality1)
-        addSleepSession(context: context, user: user, startDate: date2, duration: duration2, quality: quality2)
-        addSleepSession(context: context, user: user, startDate: date3, duration: duration3, quality: quality3)
+        _ = addSleepSession(context: context, user: user, startDate: date1, duration: duration1, quality: quality1)
+        _ = addSleepSession(context: context, user: user, startDate: date2, duration: duration2, quality: quality2)
+        _ = addSleepSession(context: context, user: user, startDate: date3, duration: duration3, quality: quality3)
 
         let modelService = ModelService(context: context)
 
@@ -142,7 +142,7 @@ class ModelServiceSleepTests: XCTestCase {
         emptyEntities(context: context)
         
         // Create a user first
-        let user = createUser(context: context)
+        _ = createUser(context: context)
         
         let modelService = ModelService(context: context)
         let sleepData = SleepData(
